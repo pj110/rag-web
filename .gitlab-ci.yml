@@ -1,0 +1,24 @@
+default:
+  tags:
+    - test
+  cache:
+    key: '$CI_PROJECT_ID-$CI_COMMIT_REF_SLUG'
+    paths:
+      - node_modules/
+stages:
+  - build
+  - deploy
+  - rsync
+
+deploy-dev:
+  stage: build
+  script:
+    - export PATH=/usr/local/sbin:/usr/sbin:/usr/bin:/opt/sonar-scanner/bin:/usr/local/sbin/apache-maven-3.6.3/bin/:/usr/local/git/bin:/usr/local/src/java/jdk1.8//bin:/usr/local/go/bin:/root/bin:/root/npm/node-v18.19.0-linux-x64/bin
+    - npm install -g pnpm@8.6.8
+    - pnpm install
+    - pnpm build:mode:prod
+    - rsync -av --delete dist  yjyy-offiaicl:/yjyy-data/nginx/web/ --progress
+  only:
+    - develop
+  when: manual
+

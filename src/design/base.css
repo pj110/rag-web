@@ -1,0 +1,46 @@
+:root{
+  --pc-wrap-w: 1200px;
+  --color-primary: #356EFF;
+  --screen-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  ---bg-color: #ffffff;
+  ---page-p: 19px;
+  ---page-radius: 8px;
+  ---page-mt: 15px;
+
+  --animate-delay: 0s;
+}
+
+/* 移动端动态视口高度：解决 100vh 包含地址栏导致页面溢出滚动的问题 */
+@supports (height: 100dvh) {
+  :root {
+    --screen-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+}
+
+html { font-size: 4px; }
+body { font-size: 16px; font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;}
+button{ background-color: transparent; }
+
+:focus{ outline: none; }
+.no-scrollbar::-webkit-scrollbar{ display: none; }
+.line-clamp-2{
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.video-js {
+  width: inherit;
+  height: inherit;
+  display: flex!important;
+  align-items: center;
+}
+
+.video-js .vjs-tech {
+  position: static;
+  height: auto;
+}
+
+.wow {
+  animation-delay: 0s; /* 延迟0秒 */
+}
