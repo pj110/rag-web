@@ -140,10 +140,6 @@ function handleKeyDown(e: KeyboardEvent) {
     handleSend()
   }
 }
-
-function gotoMap() {
-  router.push('/map')
-}
 </script>
 
 <template>
@@ -158,7 +154,7 @@ function gotoMap() {
     <div class="relative z-10 h-48px md:h-56px flex items-center justify-center glass-header border-b border-white/10 flex-shrink-0">
       <div class="flex items-center gap-6px md:gap-8px">
         <div class="w-6px h-6px md:w-8px md:h-8px rounded-full bg-[#00f0ff] shadow-[0_0_10px_#00f0ff] animate-pulse" />
-        <span class="text-16 md:text-18 font-bold text-white tracking-wider neon-text" @click="gotoMap">AI 简历助手</span>
+        <span class="text-16 md:text-18 font-bold text-white tracking-wider neon-text">AI 简历助手</span>
         <div class="w-6px h-6px md:w-8px md:h-8px rounded-full bg-[#00f0ff] shadow-[0_0_10px_#00f0ff] animate-pulse" />
       </div>
     </div>
